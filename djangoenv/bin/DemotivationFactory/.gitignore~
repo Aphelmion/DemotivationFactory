@@ -1,0 +1,4 @@
+myenv
+*.pyc
+myproject/ignore_directory
+
