@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+{% load extras %}
+{% load i18n %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}picasagallery/css/base.css"
+          type="text/css" media="screen" charset="utf-8" />
+{% endblock %}
+
+{% block content %}
+    {% for album in albums %}
+        <div class='album'>
+            <div class='album-head'>
+                <a href="{% url picasagallery.views.album_list album.GetAlbumId %}" >
+                    <img class="album-preview" src="{%  thumbnail_url album %}">
+                </a>
+            </div>
+            <div class="album-name">
+                <a href="{% url picasagallery.views.album_list album.GetAlbumId %}">{{  album.title.text }}</a>
+            </div>
+        </div>
+    {% endfor %}
+	<p>
+        <a href="/media/picasa_gdata.zip">{% trans 'Download source' %}</a>
+    </p>
+{%  endblock %}

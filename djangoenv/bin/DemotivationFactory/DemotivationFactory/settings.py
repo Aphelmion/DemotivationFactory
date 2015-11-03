@@ -14,7 +14,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+PACKAGE_ROOT = os.path.dirname(__file__)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -29,6 +29,27 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+# Additional locations of static files
+STATICFILES_DIRS = (
+    # Put strings here, like "/home/html/static" or "C:/www/django/static".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+   '/home/qosmio/works/djangoenv/bin/DemotivationFactory/picasagallery/static/picasagallery/css',
+    '/home/qosmio/works/djangoenv/bin/DemotivationFactory/picasagallery/static/prettyphoto/js',
+    '/home/qosmio/works/djangoenv/bin/DemotivationFactory/picasagallery/static/prettyphoto/css',
+    '/home/qosmio/works/djangoenv/bin/DemotivationFactory/picasagallery/static/prettyphoto/images',
+    '/home/qosmio/works/djangoenv/bin/DemotivationFactory/picasagallery/static/prettyphoto',
+)
+
+
+# List of finder classes that know how to find static files in
+# various locations.
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+)
+
 
 INSTALLED_APPS = (
 
@@ -44,7 +65,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     'crispy_forms',
-  #  'loginapp',
+
+    'picasagallery',
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -59,6 +82,9 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'DemotivationFactory.urls'
+
+
+
 
 TEMPLATES = [
     {
@@ -127,3 +153,9 @@ REGISTRATION_AUTO_LOGIN = True
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 STATIC_URL = '/static/'
+
+# Picasagallery settings
+PICASAGALLERY_USER = 'denotivationfactory@gmail.com'
+PICASAGALLERY_PHOTO_THUMBSIZE = '128'
+PICASAGALLERY_PHOTO_IMGMAXSIZE = '1024'
+PICASAGALLERY_ALBUM_THUMBSIZE = '160c'

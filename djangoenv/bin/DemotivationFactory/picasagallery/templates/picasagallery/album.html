@@ -1,0 +1,31 @@
+{% extends 'main.html' %}
+{% load extras %}
+{% load i18n %}
+
+{% block head %}
+    {% include 'picasagallery/pphoto.html' %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}picasagallery/css/base.css"
+          type="text/css" media="screen" charset="utf-8" />
+{% endblock %}
+
+{% block content %}
+
+    <p class="lead">{% trans "Album:" %} {{ album.title.text }}</p>
+
+    <div class='gallery'>
+        {% for photo in photos %}
+            <div class='image-preview-div'>
+                <a class='image-preview-link' style='{% thumbnail_style photo %}'
+                                              rel='gallery-image[pp_gal]' href='{{ photo.content.src }}'>
+                    <img class='image-preview-img'
+                                style='{% thumbnail_style photo %}'
+                            {% if photo.title %}
+                                alt='{{ photo.title.text }}'
+                            {% endif %}
+                            src='{%  thumbnail_url photo %}'>
+                </a>
+            </div>
+        {% endfor %}
+
+    </div>
+{% endblock %}

@@ -1,0 +1,18 @@
+div.album{
+    display: inline-block;
+}
+
+div .image-preview-div{
+    display: inline-block;
+    margin: 5px 5px 5px 5px;
+    text-align: center;
+}
+a.image-preview-link{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #AAA;
+}
+.image-preview-img{
+    vertical-align: middle;
+}

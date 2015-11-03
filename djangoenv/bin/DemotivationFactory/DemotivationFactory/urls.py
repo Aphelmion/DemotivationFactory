@@ -8,6 +8,6 @@ urlpatterns = patterns(' ',
 
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', include('mainApp.urls')),
+    url(r'^$', include('picasagallery.urls')),
 
 )
